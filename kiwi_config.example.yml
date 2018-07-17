@@ -1,0 +1,17 @@
+---
+wsgi:
+  host: 0.0.0.0
+  port: 8877
+
+mongodb_service:
+  test:
+    uri: 127.0.0.1
+    database: kiwi
+    options: {}
+
+resources:
+  - kiwi.resource
+
+debug: true
+
+cookie_secret: '123456'

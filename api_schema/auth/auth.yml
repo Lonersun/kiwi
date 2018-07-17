@@ -1,0 +1,45 @@
+- route_base: '/auth/logout'
+  description: 授权模块
+  apis:
+    post:
+      summary: 注销登录接口
+      description: 用户注销登录
+      parameters: []
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: "#/definitions/AccountLogout"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: "#/definitions/Error"
+
+- route_base: '/auth/login'
+  description: 登陆模块
+  apis:
+    post:
+      summary: 登录接口
+      description: 登录接口
+      parameters:
+        - name: mail
+          in: body
+          note: 邮箱
+          required: true
+          regex: ^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$
+          type: string
+        - name: password
+          in: body
+          note: 密码
+          required: true
+          regex: ^([a-zA-Z0-9])+$
+          type: string
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: "#/definitions/AuthLogin"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: "#/definitions/Error"

@@ -1,0 +1,4 @@
+Account:
+  name:
+    type: string
+    description: 描述
